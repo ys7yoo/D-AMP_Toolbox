@@ -1,31 +1,32 @@
 
 Forked on 2018. 1. 11
 
-===
+---------------------------------------------------------------------------
 
 Original release date : 8/7/14
 
 ## References 
 1. "From Denoising to Compressed Sensing", published in IEEE Trans. Info. Theory, 2016
-Authors               : Christopher A. Metzler, Arian Maleki, Richard G. Baraniuk
-Download              : http://arxiv.org/abs/1406.4175
+	Authors               : Christopher A. Metzler, Arian Maleki, Richard G. Baraniuk
+	Download              : http://arxiv.org/abs/1406.4175
 
 2. "Denoising-based Vector AMP" 
-Authors               : Philip Schniter, Sundeep Rangan, Alyson K. Fletcher
-Download              : http://arxiv.org/abs/1611.01376
+	Authors               : Philip Schniter, Sundeep Rangan, Alyson K. Fletcher
+	Download              : http://arxiv.org/abs/1611.01376
 
 3. "BM3D-PRGAMP: Compressive phase retrieval based on BM3D denoising" 
-Authors               : Christopher A. Metzler, Arian Maleki, Richard G. Baraniuk
-Download              : http://ieeexplore.ieee.org/abstract/document/7532810/
+	Authors               : Christopher A. Metzler, Arian Maleki, Richard G. Baraniuk
+	Download              : http://ieeexplore.ieee.org/abstract/document/7532810/
 
 4. "Learned D-AMP: Principled Neural-Network-based Compressive Image Recovery" 
-Authors               : Christopher A. Metzler, Ali Mousavi, Richard G. Baraniuk
-Download              : https://arxiv.org/abs/1704.06625
+	Authors               : Christopher A. Metzler, Ali Mousavi, Richard G. Baraniuk
+	Download              : https://arxiv.org/abs/1704.06625
 
 Questions/suggestions/comments: chris.metzler@rice.edu (D-AMP, D-prGAMP, & LDAMP) or schniter.1@osu.edu (D-VAMP)
 
+
 ## Primary Contents
----------------------------------------------------------------------------
+
 ### scripts under `Demos` folder:
     CS_1D_Demo.m: Recover a compressively sampled 1D signal with Haar wavelet sparsity based (V)AMP and NLM-(V)AMP.
     CS_Imaging_Demo.m: Recover compressively sampled image using D-AMP.
@@ -59,8 +60,9 @@ Questions/suggestions/comments: chris.metzler@rice.edu (D-AMP, D-prGAMP, & LDAMP
     OptimumLambdaSigned.mat: Look up table to set the threshold for AMP.
     TestImages: Images are from Javier Portilla's dataset: http://decsai.ugr.es/~javier/denoise/test_images/index.htm
 
+
 ## LDAMP_TensorFlow Contents
----------------------------------------------------------------------------
+
 ### Code:
     TrainLearnedDAMP.py: Code to train the LDAMP or LDIT networks. Supports layer-by-layer and end-to-end training.
     TestLearnedDAMP.py: Code to test the LDAMP or LDIT networks. Supports layer-by-layer end-to-end, and denoiser-by-denoiser trained networks.
@@ -74,8 +76,9 @@ Questions/suggestions/comments: chris.metzler@rice.edu (D-AMP, D-prGAMP, & LDAMP
 
 Important: At present the TensorFlow networks are smaller than the Matlab networks and have been trained with less data. For the best possible LDAMP performance use the 20 layer version of the "DnCNN" denoiser in CS_Imaging_Demo_LDAMP.m
 
+
+
 ## Packages
----------------------------------------------------------------------------
 This download includes the BM3D, BLS-GSM, NLM, and Rice Wavelet Toolbox packages.
 The latest versions of these packages can be found at:
     BM3D: http://www.cs.tut.fi/~foi/GCF-BM3D/
@@ -83,14 +86,16 @@ The latest versions of these packages can be found at:
     NLM: http://www.mathworks.com/matlabcentral/fileexchange/27395-fast-non-local-means-1d--2d-color-and-3d
     Rice Wavelet Toolbox (RWT): https://github.com/ricedsp/rwt
 
+
+
 ## Dependencies
----------------------------------------------------------------------------
 The TensorFlow LDAMP/LDIT demos require that models and training data be downloaded form https://rice.box.com/s/n5uz3jxup375d1hg0p6yux3jsl6a4thq. Place the models and data in D-AMP_Toolbox/LDAMP_TensorFlow/saved_models/ and D-AMP_Toolbox/LDAMP_TensorFlow/TrainingData/ respectively.
 The Matlab LDAMP/LDVAMP demos ('DnCNN-AMP') require that you have Matconvnet (http://www.vlfeat.org/matconvnet/) compiled and on your path.
 VAMP demos require that you have the latest version of the GAMPmatlab toolbox downloaded via the SVN interface (svn co svn://svn.code.sf.net/p/gampmatlab/code/ GAMPmatlab) and that you have GAMPmatlab/main and GAMPmatlab/VAMP on your path.
 
+
+
 ## Installation
----------------------------------------------------------------------------
 The LDAMP_TensorFlow code were created and tested using TensorFlow 1.0 and Python 2.7
 The Non-local Means and Rice Wavelet Toolbox code need to be compiled before they can be used:
 -Compile the NLM utilities by typing "mex image2vectors_double.c", "mex image2vectors_single.c", "mex vectors_nlmeans_double.c", and "mex vectors_nlmeans_single.c" from the Packages/NLM/ directory. 
@@ -99,19 +104,16 @@ You will need Matlab's stat toolbox for qqplots.
 
 
 ## Example
----------------------------------------------------------------------------
 Use BM3D-AMP to recover a signal a 128x128 image x_0 sampled according to y=M*x_0 where M is an m by n Gaussian measurement matrix with unit norm columns:
     x_hat=DAMP(y,30,128,128,'BM3D',M);
 See CS_Imaging_Demo.m for other examples, including D-VAMP.
 
 
 ## Modifying Code
----------------------------------------------------------------------------
 Our code was designed to make it as easy as possible to test D-(V)AMP with a new denoiser.
 To test another denoiser in the D-(V)AMP algorithm, simply add an additional case statement to denoise.m and place your denoising function there.  (Your denoiser will have access to the noisy signal as well as an estimate of the standard deviation of the noise).
 Next change the "denoiser" argument in any calls to DAMP, DVAMP, DprGAMP, DIT, DAMP_oneIter, etc., to the name used in your case statement. e.g: x_hat=DAMP(y,30,128,128,'mydenoiser',M);
 
 ## Issues
----------------------------------------------------------------------------
 The latest version of the Rice Wavelet Toolbox (RWT) does not compile under Windows 64 bit Matlab. Older versions of the RWT often crash. 
 At this point in time functions and scripts which use the RWT (CS_1D_Demo and the BLS-GSM denoiser) must be run on a Unix machine.  BM3D-AMP and other D-AMP algorithms work with Windows and Unix.
