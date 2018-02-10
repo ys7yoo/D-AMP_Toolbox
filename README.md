@@ -1,6 +1,13 @@
 
 Forked on 2018. 1. 11
 
+1. Compile mex files 
+  * In the Matlab, go to the `Packages/rwt/bin` folder
+  * run `compile`
+  
+
+
+
 ---------------------------------------------------------------------------
 
 Original release date : 8/7/14
