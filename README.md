@@ -81,10 +81,10 @@ Important: At present the TensorFlow networks are smaller than the Matlab networ
 ## Packages
 This download includes the BM3D, BLS-GSM, NLM, and Rice Wavelet Toolbox packages.
 The latest versions of these packages can be found at:
-    BM3D: http://www.cs.tut.fi/~foi/GCF-BM3D/
-    BLS-GSM: http://decsai.ugr.es/~javier/denoise/software/index.htm
-    NLM: http://www.mathworks.com/matlabcentral/fileexchange/27395-fast-non-local-means-1d--2d-color-and-3d
-    Rice Wavelet Toolbox (RWT): https://github.com/ricedsp/rwt
+* BM3D: http://www.cs.tut.fi/~foi/GCF-BM3D/
+* BLS-GSM: http://decsai.ugr.es/~javier/denoise/software/index.htm
+* NLM: http://www.mathworks.com/matlabcentral/fileexchange/27395-fast-non-local-means-1d--2d-color-and-3d
+* Rice Wavelet Toolbox (RWT): https://github.com/ricedsp/rwt
 
 
 
