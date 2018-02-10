@@ -5,19 +5,20 @@ Forked on 2018. 1. 11
 
 Original release date : 8/7/14
 
-Reference #1          : "From Denoising to Compressed Sensing", published in IEEE Trans. Info. Theory, 2016
+## References 
+1. "From Denoising to Compressed Sensing", published in IEEE Trans. Info. Theory, 2016
 Authors               : Christopher A. Metzler, Arian Maleki, Richard G. Baraniuk
 Download              : http://arxiv.org/abs/1406.4175
 
-Reference #2          : "Denoising-based Vector AMP" 
+2. "Denoising-based Vector AMP" 
 Authors               : Philip Schniter, Sundeep Rangan, Alyson K. Fletcher
 Download              : http://arxiv.org/abs/1611.01376
 
-Reference #3          : "BM3D-PRGAMP: Compressive phase retrieval based on BM3D denoising" 
+3. "BM3D-PRGAMP: Compressive phase retrieval based on BM3D denoising" 
 Authors               : Christopher A. Metzler, Arian Maleki, Richard G. Baraniuk
 Download              : http://ieeexplore.ieee.org/abstract/document/7532810/
 
-Reference #4          : "Learned D-AMP: Principled Neural-Network-based Compressive Image Recovery" 
+4. "Learned D-AMP: Principled Neural-Network-based Compressive Image Recovery" 
 Authors               : Christopher A. Metzler, Ali Mousavi, Richard G. Baraniuk
 Download              : https://arxiv.org/abs/1704.06625
 
