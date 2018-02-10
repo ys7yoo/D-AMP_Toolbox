@@ -25,7 +25,7 @@ Questions/suggestions/comments: chris.metzler@rice.edu (D-AMP, D-prGAMP, & LDAMP
 
 Primary Contents
 ---------------------------------------------------------------------------
-scripts:
+scripts under `Demos` folder:
     CS_1D_Demo.m: Recover a compressively sampled 1D signal with Haar wavelet sparsity based (V)AMP and NLM-(V)AMP.
     CS_Imaging_Demo.m: Recover compressively sampled image using D-AMP.
 	CS_Imaging_Demo_DVAMP.m: Recover compressively sampled image using D-VAMP.
@@ -34,7 +34,7 @@ scripts:
     QQplotGenerator.m: Generate a series of QQplots of the effective noise of D-IT and D-AMP.
     StateEvolutionGenerator.m: Compute the state evolution of a D-AMP algorithm and compare it to the true MSEs of D-AMP and D-IT.
 
-functions:
+functions under `Algorithms` folder:
     AMP.m: Reconstructs sparse, compressively sampled signals using AMP.
     VAMP.m: Reconstructs sparse, compressively sampled signals using VAMP.
     DAMP.m: Performs D-AMP reconstruction of a compressively sampled signal. The string "denoiser" selects which denoiser to use.
