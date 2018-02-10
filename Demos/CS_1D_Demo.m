@@ -33,6 +33,7 @@ y=phi*x_0;
 % AMP recovers wavelet coefficients which are then transformed back into the original domain.
 x_hat1_coefs=AMP(y,iters,n,M_fp,Mt_fp);
 x_hat1=psi_fp(x_hat1_coefs,h,n,0);
+
 x_hat2=DAMP(y,iters,n,1,'NLM',phi)';
 
 %% Plot Results

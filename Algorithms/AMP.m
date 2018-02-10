@@ -12,6 +12,7 @@ function [x_hat,PSNR] = AMP(y,iters,n,M_func,Mt_func,PSNR_func)
 %       x_hat   : the recovered signal.
 %       PSNR    : the PSNR trajectory.
 
+%% 
 if (nargin>=5)&&(~isempty(Mt_func)) % function handles
     M=@(x) M_func(x);
     Mt=@(z) Mt_func(z);
@@ -30,15 +31,29 @@ delta_check=delta_vec;
 delta=m/n;
 lambda=interp1(delta_check,lambda_opt,delta);
 
+%% plot optimal delta - lambda tradeoff
+% plot(delta_vec, lambda_opt); xlabel('\delta'); ylabel('\lambda'); box off
+
+%% 
 z_t=y;
 x_t=zeros(n,1);
 PSNR=zeros(1,iters);
+
 for iter=1:iters
-    pseudo_data=Mt(z_t)+x_t;
-    sigma_hat=sqrt(1/m*sum(abs(z_t).^2));
-    x_t=(abs(pseudo_data)> lambda*sigma_hat).*(abs(pseudo_data)-lambda*sigma_hat).*sign(pseudo_data);
-    PSNR(iter)=PSNR_func(x_t);
-    z_t=y-M(x_t)+1/m.*z_t.*length(find(abs(x_t)>0));       
+    pseudo_data = Mt(z_t)+x_t;
+    sigma_hat = sqrt(1/m*sum(abs(z_t).^2));
+    x_t = (abs(pseudo_data)>lambda*sigma_hat).*(abs(pseudo_data)-lambda*sigma_hat).*sign(pseudo_data);    
+    z_t = y - M(x_t) + 1/m.*z_t.*length(find(abs(x_t)>0));       
+    
+    PSNR(iter) = PSNR_func(x_t);
+    
 end
+
 x_hat=x_t;
+
 end
+
+
+
+
+
