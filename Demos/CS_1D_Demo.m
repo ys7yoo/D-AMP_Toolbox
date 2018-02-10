@@ -21,8 +21,7 @@ for j = 1:n
     phi(:,j) = phi(:,j) ./ sqrt(sum(abs(phi(:,j)).^2));
 end
 
-%% Generate function handles to be used by AMP to project measurements to and
-%from sparsifying wavelet basis
+%% Generate function handles to be used by AMP to project measurements to and from sparsifying wavelet basis
 h=daubcqf(2);
 M_fp=@(x) phi*psi_fp(x,h,n,0);
 Mt_fp=@(z) psit_fp((phi'*z),h,n,0);
@@ -30,8 +29,8 @@ Mt_fp=@(z) psit_fp((phi'*z),h,n,0);
 %% Compressively sample the signal
 y=phi*x_0;
 
-%% Recover Signal using AMP and D-AMP.  AMP recovers wavelet coefficients
-%which are then transformed back into the original domain.
+%% Recover Signal using AMP and D-AMP.  
+% AMP recovers wavelet coefficients which are then transformed back into the original domain.
 x_hat1_coefs=AMP(y,iters,n,M_fp,Mt_fp);
 x_hat1=psi_fp(x_hat1_coefs,h,n,0);
 x_hat2=DAMP(y,iters,n,1,'NLM',phi)';
