@@ -2,6 +2,7 @@
 %signal using AMP based on Haar Wavelets and D-AMP based on the NLM
 %denoising algorithm.
 
+clear
 addpath(genpath('..'));
 
 %% Generate Signal
