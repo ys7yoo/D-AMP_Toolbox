@@ -43,6 +43,7 @@ for iter=1:iters
     pseudo_data = Mt(z_t)+x_t;
     sigma_hat = sqrt(1/m*sum(abs(z_t).^2));
     x_t = (abs(pseudo_data)>lambda*sigma_hat).*(abs(pseudo_data)-lambda*sigma_hat).*sign(pseudo_data);    
+    % % plot(pseudo_data, x_t,'.')
     z_t = y - M(x_t) + 1/m.*z_t.*length(find(abs(x_t)>0));       
     
     PSNR(iter) = PSNR_func(x_t);
