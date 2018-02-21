@@ -21,7 +21,7 @@ def dEta(data, th):
     """
     I = abs(data)>th
 
-    return I
+    return float(I)
 
 
 
